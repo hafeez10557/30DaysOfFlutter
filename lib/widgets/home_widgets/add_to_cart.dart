@@ -4,18 +4,20 @@ import 'package:flutter_catalog/core/store.dart';
 import 'package:flutter_catalog/models/cart.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
+import '';
 
 class AddToCart extends StatelessWidget {
   final Item catalog;
 
-  AddToCart({Key key, this.catalog}) : super(key: key);
+  const AddToCart({Key? key, required this.catalog}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
-    VxState.listen(context,to: [AddMutation, RemoveMutation]);
+    VxState.watch(context,on: [AddMutation, RemoveMutation]);
     final CartModel _cart=  (VxState.store as MyStore).cart;
 
-    bool isInCart = _cart.item.contains(catalog) ?? false;
+    bool isInCart = _cart.item.contains(catalog);
     return ElevatedButton(
       onPressed: () {
         if (!isInCart) {

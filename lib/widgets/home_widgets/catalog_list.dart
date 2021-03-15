@@ -22,7 +22,7 @@ class CatalogList extends StatelessWidget {
               builder: (context) => HomeDetailPage(catalog: catalog),
             ),
           ),
-          child: CatalogItem(catalog: catalog),
+          child: CatalogItem(catalog: catalog, key: null,),
         );
       },
     );
@@ -32,9 +32,9 @@ class CatalogList extends StatelessWidget {
 class CatalogItem extends StatelessWidget {
   final Item catalog;
 
-  const CatalogItem({Key key, @required this.catalog})
-      : assert(catalog != null),
-        super(key: key);
+  const CatalogItem({Key? key, required this.catalog}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class CatalogItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               catalog.name.text.lg.color(context.accentColor).bold.make(),
-              catalog.desc.text.textStyle(context.captionStyle).make(),
+              catalog.desc.text.textStyle(context.captionStyle!).make(),
               10.heightBox,
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,

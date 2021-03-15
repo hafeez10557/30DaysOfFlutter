@@ -7,9 +7,8 @@ import 'package:velocity_x/velocity_x.dart';
 class HomeDetailPage extends StatelessWidget {
   final Item catalog;
 
-  const HomeDetailPage({Key key, @required this.catalog})
-      : assert(catalog != null),
-        super(key: key);
+  const HomeDetailPage({Key? key, required this.catalog})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,11 +47,11 @@ class HomeDetailPage extends StatelessWidget {
                         .color(context.accentColor)
                         .bold
                         .make(),
-                    catalog.desc.text.textStyle(context.captionStyle).xl.make(),
+                    catalog.desc.text.textStyle(context.captionStyle!).xl.make(),
                     10.heightBox,
                     "Dolor sea takveam invid aliquyam amet tempor diam no aliquyunt. Elitr lorem eirmod dolore clita. Rebum."
                         .text
-                        .textStyle(context.captionStyle)
+                        .textStyle(context.captionStyle!)
                         .make()
                         .p16()
                   ],

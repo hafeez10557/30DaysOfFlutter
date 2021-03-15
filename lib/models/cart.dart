@@ -6,7 +6,7 @@ import 'catalog.dart';
 class CartModel{
 
 
-  CatalogModel _catalog;
+  late CatalogModel _catalog;
   //collection of Ids
   final List<int> _itemIds=[];
 
@@ -28,7 +28,7 @@ class AddMutation extends VxMutation<MyStore>{
   AddMutation(this.item);
   @override
   perform() {
-    store.cart._itemIds.add(item.id );
+    store!.cart._itemIds.add(item.id );
     throw UnimplementedError();
   }
 
@@ -39,7 +39,7 @@ class RemoveMutation extends VxMutation<MyStore>{
   RemoveMutation(this.item);
   @override
   perform() {
-    store.cart._itemIds.remove(item.id );
+    store!.cart._itemIds.remove(item.id );
     throw UnimplementedError();
   }
 
